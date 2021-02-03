@@ -1,0 +1,24 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body{
+	width: 100vw;
+	height: 100vh;
+}
+#juego{
+	width: 100%;
+	height: 100%;
+	background-color: grey;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#MyCanvas{
+	background-color: white;
+	border-bottom: 1px solid black;
+	margin: auto;
+	width: 45%;
+	height: 30%;
+}
