@@ -79,9 +79,10 @@ class Obstaculo{
 
 	update(){
 		this.posx += -this.speedx;
-
 		if(this.posx < 0 - this.width){
 			this.posx = canvas.width;
+			this.heightPos = Math.floor(Math.random() * (1 - 0 + 1) + 0);
+			this.height = this.size[this.heightPos];
 		}
 	}
 
@@ -117,14 +118,9 @@ function gameplay(){
 	obstaculo.draw();
 	obstaculo.update();
 	DetectarColision();
-	AltoDelEnemigo();
 	window.requestAnimationFrame(gameplay);
 }
 
-function AltoDelEnemigo(){
-	altoObstaculo = Math.floor(Math.random() * (1 - 0 + 1) + 0);
-	obstaculo.altoObstaculo = altoObstaculo;
-}
 
 function DetectarColision(){
 	if(obstaculo.posx - obstaculo.width - 20 < dinosaurio.posx + dinosaurio.width - 40 && obstaculo.posx - obstaculo.width - 20 > dinosaurio.posx 
@@ -134,7 +130,7 @@ function DetectarColision(){
 			dinosaurio.playing = false;
 			dinosaurio.imagePos = 3;
 			ctx.drawImage(obstaculo.img, 1147, 26, 337, 17,canvas.width / 2 - 300, canvas.height / 2 - 180, 600, 200);
-			setTimeout(function(){window.location.reload(true);}, 2000);
+			setTimeout(function(){window.location.reload(true);}, 1000);
 	}
 }
 function AdaptarCanvas(){
