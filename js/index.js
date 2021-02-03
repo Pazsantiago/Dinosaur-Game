@@ -101,7 +101,6 @@ let altoObstaculo = Math.floor(Math.random() * (1 - 0 + 1) + 0);
 
 let dinosaurio = new Personaje(50, canvas.height, 160, 200, ctx);
 let obstaculo = new Obstaculo(canvas.width, canvas.height,  altoObstaculo, ctx);
-
 addEventListener("keydown", function(e){
 	let letraPresionada = e.keyCode;
 	if(letraPresionada == 32){
@@ -118,7 +117,13 @@ function gameplay(){
 	obstaculo.draw();
 	obstaculo.update();
 	DetectarColision();
+	AltoDelEnemigo();
 	window.requestAnimationFrame(gameplay);
+}
+
+function AltoDelEnemigo(){
+	altoObstaculo = Math.floor(Math.random() * (1 - 0 + 1) + 0);
+	obstaculo.altoObstaculo = altoObstaculo;
 }
 
 function DetectarColision(){
